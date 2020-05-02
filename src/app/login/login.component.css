@@ -1,0 +1,26 @@
+.area{
+   background-color: rgb(255, 255, 255);
+    opacity: 0.85 !important;
+    border-width: 1px;
+    border-style: solid;
+    -o-border-image: initial;
+    border-image: initial;
+    border-color: rgb(216, 222, 226);
+    /* height: -webkit-fill-available; */
+    margin-top: 5%;
+}
+.app-title{
+    margin-bottom: 10%;
+    margin-top: 5%;
+    font-weight: 800;
+    color: #1ab394;
+}
+
+.tab-area{
+    min-height: auto;
+    margin-bottom: 14%;
+}
+
+:host ::ng-deep .tab-content{
+    padding: 4%;
+}

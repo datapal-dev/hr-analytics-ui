@@ -1,0 +1,42 @@
+.model-detail-area{
+    padding: 1.5%;
+}
+.each-section{
+    background-color: white;
+    border: 1px solid #c8cacc;
+    padding: 1%;
+}
+
+.tittle{
+    font-size: 1.3em;
+    color: black;
+    font-family: sans-serif;
+    font-weight: 400;
+}
+.list-area{
+    font-size: 1.0em;
+}
+.cm-box {
+    height: 50px;
+    background: #f3f3f3;
+    border: 1px solid gray;
+    text-align: center;
+    padding: 0.7em;
+}
+.cm-div{
+        padding: 1em;
+}
+
+.bold-text{
+    font-weight: bold;
+}
+
+:host::ng-deep .node{
+    background-color: #f1f1f1;
+    font-size: 13px;
+}
+
+:host::ng-deep .leaf{
+    background-color: pink;
+    font-size: 13px;
+}

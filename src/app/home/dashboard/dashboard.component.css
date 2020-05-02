@@ -1,0 +1,15 @@
+.sub-menu{
+    height: 65px;
+    background-color: #1ab394;
+    font-size: 1.5em;
+    padding: 0.9%;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    border: 1px solid white;
+}
+
+.activeUrl{
+    background-color: #343a40;
+    color: #1ab394;
+}

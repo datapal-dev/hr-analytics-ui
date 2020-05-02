@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-4">
+        <div class="input-group image-preview">
+          <input placeholder="" type="text"  placeholder="* Upload a csv or excel file."
+          class="form-control image-preview-filename app-btn" disabled="disabled" [tabindex]="0" [(ngModel)]="fileName">
+          <span class="input-group-btn">
+            <div class="btn btn-default image-preview-input app-btn">
+              <span class="glyphicon glyphicon-folder-open"></span>
+              <span class="image-preview-input-title">Browse</span>
+              <input type="file" accept=".xls,.xlsx,.csv" (change)="fileUploaded($event);" [tabindex]="0" id='fileupload' title="Browse"
+             
+              />
+            </div>
+          </span>
+        </div>
+        <a href="assets/template/sample.csv" target="_self" class="download-link">Download Sample Format</a>
+  </div>
+  <div class="col">
+    <button type="button" class="btn btn-primary app-btn" [tabindex]="0" [disabled]="canNext" (click)="nextGo()" title="Next">
+        Next <i class="fa fa-arrow-right" aria-hidden="true"></i>
+    </button>
+</div>
+</div>

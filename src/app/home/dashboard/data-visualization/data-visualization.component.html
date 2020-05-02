@@ -1,0 +1,55 @@
+<div class="row viz-opt">
+    <div class="col-md-2">
+        <div class="col op-label">
+            Chart Type
+        </div>
+        <div class="col">
+            <p-dropdown [options]="chartOpt" [(ngModel)]="chart_type"  [style]="{'width':'100%'}" ></p-dropdown>
+        </div>
+    </div>
+    
+    <div class="col-md-2" >
+        <div class="col op-label">
+            X - Axis
+        </div>
+        <div class="col">
+            <p-dropdown [disabled]="!(chart_type !== 'correlation_plot')" [options]="xOpt" [(ngModel)]="x"   [style]="{'width':'100%'}" optionLabel="colName"></p-dropdown>
+        </div>
+    </div>
+    
+    <div class="col-md-2" >
+        <div class="col op-label">
+             Y - Axis
+        </div>
+        <div class="col">
+            <p-dropdown  [disabled]="!(chart_type !== 'correlation_plot')" [options]="yOpt" [(ngModel)]="y"   [style]="{'width':'100%'}" optionLabel="colName"></p-dropdown>
+        </div>
+    </div>
+    
+    <div class="col-md-2" *ngIf="(chart_type === 'scatter' || chart_type === 'box_plot')">
+        <div class="col op-label">
+             Color
+        </div>
+        <div class="col">
+            <p-dropdown [options]="colorOpt" [(ngModel)]="color"   [style]="{'width':'100%'}" optionLabel="colName"></p-dropdown>
+        </div>
+    </div>
+     <div class="col">
+        <button  class="btn  btn-lg btn-primary app-btn pull-right" style="margin-top: 12px;" (click)="plot()">Get Insights</button>
+     </div>
+</div>
+
+<div class="row">
+    <!--This will repeat based on no of charts we will get-->
+    <div class="col-6 chart-area" *ngFor="let chart of all_charts">
+       <div class="col chart-title">
+            {{chart.viz_message}}
+        </div>
+        <div class="w-100"></div>
+        <div class="col chart-div">
+            <app-chart [chartTypeList]="[]" [chartObj]="chart.data"></app-chart>
+            <!--<app-chart [chartTypeList]="[]" [chartObj]="chart.data" *ngIf="chart_type === 'box_plot'"></app-chart>-->
+            <!--<app-chart [chartTypeList]="[]" [chartObj]="chart.data" *ngIf="chart_type === 'correlation_plot'"></app-chart>-->
+        </div>
+    </div>
+</div>

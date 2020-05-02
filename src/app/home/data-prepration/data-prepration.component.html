@@ -1,0 +1,63 @@
+
+    <ngb-tabset [justify]="'left'" style="width: 100%;">
+  <ngb-tab>
+      <ng-template ngbTabTitle>Data Prepration
+      </ng-template>
+    <ng-template ngbTabContent>
+      
+       <ngb-accordion #acc [closeOthers]="true" activeIds="static-1">
+  <ngb-panel id="static-1" (isOpenChange)="haveData1= true;haveData2=true">
+      <ng-template ngbPanelTitle>
+      <span><i class="fa fa-upload" aria-hidden="true"></i> Upload Data </span>
+    </ng-template>
+    
+    <ng-template ngbPanelContent>
+      <app-upload-view-data (next)="colSel($event,acc);"></app-upload-view-data>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel id="static-2" [disabled]="haveData1">
+    <ng-template ngbPanelTitle>
+      <span><i class="fa fa-cogs" aria-hidden="true"></i> Choose Input and Output Columns</span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+    <app-column-selection [columns]="columns" (selection)="selectionEvent($event,acc);"></app-column-selection>
+    </ng-template>
+  </ngb-panel>
+  <ngb-panel id="static-3" [disabled]="haveData2">
+      <ng-template ngbPanelTitle>
+      <span><b> <i class="fa fa-check" aria-hidden="true"></i> Select Analysis Type</b> </span>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <app-analysis-options (picked)="dashboard($event);"></app-analysis-options>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>
+     
+     
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab>
+      <ng-template ngbTabTitle><i class="fa fa-table"></i> Data </ng-template>
+    <ng-template ngbTabContent>
+      <p-table [columns]="cols" [value]="cars" [paginator]="true" [rows]="20" [scrollable]="true" [style]="{width:'100%'}" scrollHeight="500px">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th *ngFor="let col of columns">
+                    {{col.header}}
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr>
+                <td *ngFor="let col of columns">
+                        {{rowData[col.field]}}
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>
+
+  
+

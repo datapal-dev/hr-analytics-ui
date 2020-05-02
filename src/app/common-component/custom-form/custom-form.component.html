@@ -1,0 +1,23 @@
+<div class="modal fade" role="dialog" [style.display]="modalProp.show ? 'block' : 'none'" [ngClass]="{'show':modalProp.show}">
+  <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5> {{modalProp.title}}</h5>
+      </div>
+      <div class="modal-body">
+       <div class="form-group" *ngFor="let f of modalProp.feilds">
+          <label [for]="f.name">{{f.label}}<span *ngIf="f.type === 'range'">: {{100 - f.val}} - {{f.val}}</span></label>
+            <input [type]="f.type" class="form-control" [name]="f.name" [(ngModel)]="f.val" *ngIf="f.type === 'number'">
+            <input [type]="f.type" class="form-control-range" [name]="f.name" [(ngModel)]="f.val" min = "0" max="100" [value]="f.val" *ngIf="f.type === 'range'">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-md btn-danger" (click)="cancel()" *ngIf="modalProp.cancel">Cancel</button>
+        <button type="button" class="btn btn-md btn-primary" (click)="okay()" *ngIf="modalProp.ok">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-backdrop fade in" *ngIf="modalProp.show"></div>

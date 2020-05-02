@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-7 area">
+        <h5 class="app-title">Get Access to Open World</h5>
+        <div class="tab-area">
+      <ngb-tabset [justify]="'justified'">
+  <ngb-tab>
+      <ng-template ngbTabTitle><b><i class="fa fa-sign-in" aria-hidden="true"></i></b>  Login</ng-template>
+    <ng-template ngbTabContent>
+    <form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control form-control-lg input-box" aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)] = "loginObj.email" name="email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control form-control-lg input-box" placeholder="Password" [(ngModel)] = "loginObj.password" name="password">
+  </div>
+  <button class="btn btn-primary app-btn" (click)="login()" [disabled]= "!(loginObj.password.length > 0 && loginObj.email.length > 0)" >Sign In</button>
+</form>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab>
+    <ng-template ngbTabTitle><b><i class="fa fa-user-plus" aria-hidden="true"></i></b>  Register</ng-template>
+    <ng-template ngbTabContent>
+        <form>
+  <div class="form-row">
+    <div class="col">
+      <label >First Name</label>
+      <input type="text" class="form-control form-control-lg input-box" placeholder="First name" [(ngModel)] = "registerObj.first_name" name="first_name">
+    </div>
+    <div class="col">
+      <label>Last Name</label>
+      <input type="text" class="form-control form-control-lg input-box" placeholder="Last name" [(ngModel)] = "registerObj.last_name" name="last_name">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control form-control-lg input-box" aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)] = "registerObj.email" name="email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control form-control-lg input-box" placeholder="Password" [(ngModel)] = "registerObj.password" name="e_password">
+  </div>
+  <button class="btn btn-primary app-btn" (click)="register()" [disabled]= "!(registerObj.password.length > 0 && registerObj.email.length > 0 && registerObj.first_name.length > 0 && registerObj.last_name.length > 0)">Sign Up</button>
+</form>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>
+</div>
+    </div>
+  </div>
+</div>

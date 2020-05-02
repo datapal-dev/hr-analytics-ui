@@ -1,0 +1,31 @@
+.viz-opt{
+    height: 80px;
+    background-color: #ffff;
+    padding-top: 8px;
+    margin-top: 5px;
+    border-radius: 0px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.op-label{
+        font-size: 1.2em;
+}
+.chart-area{
+    padding: 0.5em;
+    background-color: white;
+    border: 1px solid #c8cacc;
+    border-radius: 5px;
+    margin-top: 0.5em;
+}
+
+.chart-title{
+    margin-top: 6px;
+    font-size: 1.4rem;
+    color: #007bff;
+}
+
+.chart-div{
+    margin-top: 3px;
+    
+}

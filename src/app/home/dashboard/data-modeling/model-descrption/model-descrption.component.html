@@ -1,0 +1,102 @@
+<div class="row model-detail-area">
+    
+    <div class="col-12 each-section" *ngIf="type === 'train'">
+        <div class="tittle">
+            Model Description
+        </div>    
+        <div class="data" *ngIf="model_output.model_desc.type === 'formulae'">
+            X2+2ab+Y2 =  (x-y)-(x+y)
+        </div>
+        <div class="data" style="overflow: auto;max-height: 350px;" *ngIf="model_output.model_desc.type === 'tree'">
+            <p-organizationChart [value]="tree_data">
+                
+                <ng-template let-node pTemplate="leaf">
+                    {{node.label}} <br>
+                    {{node.sub_level}} <br>
+                    {{node.sub_level_l}} <br>
+                </ng-template>
+                <ng-template let-node pTemplate="node">
+                    {{node.label}} <br>
+                    {{node.sub_level}} <br>
+                    {{node.sub_level_l}} <br>
+                </ng-template>
+            </p-organizationChart>
+        </div>
+    </div>
+    <div class="col-6 each-section">
+        <div class="tittle">
+            Confusion Matrix
+        </div>    
+        <div class="data cm-div">
+            <div class="row form-group">
+                <label for="range">Probability Threshold : {{probability_threshold}}</label>
+                <input type="range" class="form-control-range" name="range" [(ngModel)]="probability_threshold" min = "0" max="1"
+                step="0.05" [value]="probability_threshold" (change)="changeProb()">
+            </div>
+            <div class = "row">
+                <div class="col-md-3 offset-md-3 cm-box cm-box bold-text">Predicted: No</div>
+                <div class="col-md-3 cm-box bold-text">Predicted: Yes</div>
+            </div>
+            <div class = "row">
+                <div class="col cm-box bold-text">Actual : No</div>
+                <div class="col cm-box">TN = {{model_output.confusion_matrix.true_negative}}</div>
+                <div class="col cm-box">FP = {{model_output.confusion_matrix.false_positive}}</div>
+                <div class="col cm-box">{{model_output.confusion_matrix.true_negative + model_output.confusion_matrix.false_positive}}</div>
+            </div>
+             <div class = "row">
+                <div class="col cm-box bold-text">Actual : Yes</div>
+                <div class="col cm-box">FN = {{model_output.confusion_matrix.false_negative}}</div>
+                <div class="col cm-box">TP = {{model_output.confusion_matrix.true_positive}}</div>
+                <div class="col cm-box">{{model_output.confusion_matrix.false_negative  + model_output.confusion_matrix.true_positive}}</div>
+            </div>
+            <div class = "row">
+                <div class="col-md-3 offset-md-3 cm-box">{{model_output.confusion_matrix.true_negative + model_output.confusion_matrix.false_negative}}</div>
+                <div class="col-md-3 cm-box">{{model_output.confusion_matrix.true_positive + model_output.confusion_matrix.false_positive}}</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-6 each-section">
+        <div class="tittle list-area">
+            <ul class="list-group">
+                <li class= "list-group-item d-flex justify-content-between align-items-center">True Positive Rate : <span class="value">{{model_output.true_positive_rate}}</span></li>
+                <li class= "list-group-item d-flex justify-content-between align-items-center">False Positive Rate : <span class="value">{{model_output.false_positive_rate}}</span></li>
+                <li class= "list-group-item d-flex justify-content-between align-items-center">Precision : <span class="value">{{model_output.precision}}</span></li>
+                <li class= "list-group-item d-flex justify-content-between align-items-center"> Recall  : <span class="value">{{model_output.recall}}</span></li>
+                <li class= "list-group-item d-flex justify-content-between align-items-center"> F score  : <span class="value">{{model_output.f_score}}</span></li>
+            </ul>
+           
+        </div> 
+    </div>
+    <div class="w-100" style="height: 30px;"></div>
+    <div class="col-6 each-section">
+        <div class="col-md-12 tittle">
+            ROC Curve
+        </div>    
+        <app-chart [chartTypeList]="[]" [chartObj]="chart"></app-chart>
+    </div>
+    <!--<div class="col-6 each-section">-->
+    <!--    <div class="col-md-12 tittle">-->
+    <!--        Rank Odering-->
+    <!--    </div>    -->
+    <!--    <div class="col-md-12 data">-->
+    <!--        <p-table [columns]="cols" [value]="rankOder">-->
+    <!--            <ng-template pTemplate="header" let-columns>-->
+    <!--                <tr>-->
+    <!--                    <th *ngFor="let col of cols" [pSortableColumn]="col.field">-->
+    <!--                        {{col.header}}-->
+    <!--                    </th>-->
+    <!--                </tr>-->
+    <!--            </ng-template>-->
+    <!--            <ng-template pTemplate="body" let-rowData let-columns="columns">-->
+    <!--                <tr>-->
+    <!--                    <td *ngFor="let col of columns">-->
+    <!--                        {{rowData[col.field]}}-->
+    <!--                    </td>-->
+    <!--                </tr>-->
+    <!--            </ng-template>-->
+    <!--        </p-table>-->
+    <!--    </div>-->
+    <!--</div>-->
+    
+</div>

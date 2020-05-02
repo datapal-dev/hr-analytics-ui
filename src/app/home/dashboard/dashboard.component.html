@@ -1,0 +1,9 @@
+<div class="row no-gutters">
+    <div class = "col sub-menu" (click)="navTo('cleaning');" [class.activeUrl]= "activeRoute === 'cleaning'">Data Cleaning</div>
+     <div class = "col sub-menu" (click)="navTo('visualization');" [class.activeUrl]= "activeRoute === 'visualization'">Data Visualization</div>
+      <div class = "col sub-menu" (click)="navTo('modeling');" [class.activeUrl]= "activeRoute === 'modeling'">Data Modeling</div>
+</div>
+<div class="col-md-12">
+    <router-outlet></router-outlet>
+    <!--<app-data-prepration style="width: 100%;"></app-data-prepration>-->
+</div>

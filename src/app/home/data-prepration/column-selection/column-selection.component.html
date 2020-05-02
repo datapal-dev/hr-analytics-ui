@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col sel-area">
+        <h5 class="area-header">All Columns</h5>
+        <div class="row search-div no-gutters">
+            <div class="col-6">
+                 <input type="text" class="form-control" placeholder="search any column" [(ngModel)]="search"  (keyup)="filter()">
+            </div>
+               
+                <div class="col-6 select-all" ><span (click)="selectAllToInput()">Select all to Input</span></div>
+        </div>
+        <div *ngFor="let a of columns" class="row column-pill col-type-opt" pDraggable="pills"
+            (onDragStart)="dragStart($event,a)" (onDragEnd)="dragEnd($event)">
+           <div class="col">
+                 {{a.colName}}   <i class="fa fa-crosshairs" aria-hidden="true"></i>
+           </div>
+           <div class="col type-opt">
+                <p-dropdown [options]="colTypeList" [(ngModel)]="a.type" [style]="{'width':'150px'}" editable="true" placeholder="Column Type"></p-dropdown>
+           </div> 
+        
+       
+        </div>
+    </div>
+    <div class="col sel-area">
+        <h5  class="area-header">Input</h5>
+        <div pDroppable="pills" 
+        (onDrop)="dropInput($event)" class='drop-area'>
+            <div *ngFor="let a of input" class="column-pill" >
+                {{a.colName}} <i class="fa fa-times" aria-hidden="true" (click)="delInput(a)"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col sel-area">
+        <h5  class="area-header">Output</h5>
+        <div pDroppable="pills" class='drop-area'
+        (onDrop)="dropOutput($event)">
+            <div *ngFor="let a of output" class="column-pill" >
+                {{a.colName}} <i class="fa fa-times" aria-hidden="true" (click)="delOutput(a)"></i>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row justify-content-end">
+    <div class="col">
+        <button (click)="next()" class="btn btn-primary pull-right app-btn" [disabled]="!(input.size > 0 && output.size > 0)">Next <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+<div class="col-md-12" *ngIf="chart">
+    <div class="row no-gutters" *ngIf="chartTypeList && chartTypeList.length > 0">
+         <p-dropdown [options]="chartTypeList" [(ngModel)]="chart_type"  (onChange)="changeChart()"></p-dropdown>
+    </div>
+    <div [chart]="chart"></div>
+</div>

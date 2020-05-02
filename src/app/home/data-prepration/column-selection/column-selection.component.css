@@ -1,0 +1,50 @@
+.column-pill{
+    background-color: #ffffff;
+    display: inline-table;
+    padding: 0.5em;
+    border-radius: 0em;
+    color: #343a40;
+    border: 1px solid #d8d8d8;
+    font-weight: 400;
+    font-size: 1.1em;
+    margin: 0.1em;
+}
+.sel-area{
+    height: 20em;
+    overflow: auto;
+    border: 1px solid #ffffff;
+    background-color: #e9ecef;
+}
+.area-header{
+    background-color: #4cab7c;
+    color: white;
+    margin: 5px;
+    padding: 5px;
+    font-family: serif;
+    border-radius: 0px;
+    text-align: center;
+    min-height: 45px;
+    padding-top: 10px;
+    font-size: 18px;
+}
+.drop-area{
+    height: 17em;
+    overflow: auto
+}
+.col-type-opt{
+    display: flex;
+}
+.type-opt{
+        text-align: right;
+}
+.search-div{
+        margin-bottom: 10px;
+    margin-top: 5px;
+    padding: 0px 8px 0px 3px;
+}
+.select-all{
+    text-align: right;
+    color: #007bfd;
+    cursor: pointer;
+    text-decoration: underline;
+}

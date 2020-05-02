@@ -1,0 +1,29 @@
+<div class="row build-area">
+    <div class="col-md-2" style="padding-top: 8px;">
+        <p-dropdown [options]="modelOption" [(ngModel)]="selModel"></p-dropdown>
+    </div>
+    <div class="col-md-9">
+        <button class="btn btn-primary app-btn margin-3" (click)="openCustomized();" [disabled]="!(selModel && selModel.length > 0)"><i class="fa fa-cog" aria-hidden="true"></i> Custmize</button>
+        <button class="btn btn-success app-btn margin-3" (click)="buildModel()" [disabled]="!(selModel && selModel.length > 0)"><i class="fa fa-check-square" aria-hidden="true"></i> Build Model</button>
+    </div>
+</div>
+<div class="row" *ngIf="show">
+   
+    <ngb-tabset [justify]="'left'" style="width: 100%;">
+  <ngb-tab>
+      <ng-template ngbTabTitle><b>Test Data</b> </ng-template>
+    <ng-template ngbTabContent>
+      <app-model-descrption [model_output]= "test_data" (updateProbabilityThreshold)="updateProb($event)" [type]="'test'"></app-model-descrption>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab>
+      <ng-template ngbTabTitle><b>Training Data</b> 
+      </ng-template>
+    <ng-template ngbTabContent>
+      <app-model-descrption [model_output]= "train_data" (updateProbabilityThreshold)="updateProb($event)" [type]="'train'"></app-model-descrption>
+    </ng-template>
+      
+  </ngb-tab>
+</ngb-tabset>
+</div>
+<app-custom-form [modalProp]="formModelObj" (save)="customData($event)"></app-custom-form>

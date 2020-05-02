@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">HR Analytics</a>
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav navbar-left mr-auto">
+            
+        </ul>
+    <ul class="navbar-nav navbar-right">
+        <li class="nav-item" [routerLink]="['/home/new']" routerLinkActive="active" >
+                <a class="nav-link" >New Analysis <i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+            </li>
+            <li class="nav-item" [routerLink]="['/home/savedModels']" routerLinkActive="active" >
+                <a class="nav-link" >Saved Models <i class="fa fa-list" aria-hidden="true"></i></a>
+            </li>
+            <li class="nav-item">
+                <div ngbDropdown class="d-inline-block">
+                    <a class="nav-link dropdown-toggle username" id="dropdownBasic1" ngbDropdownToggle><i class="fa fa-user" aria-hidden="true"></i>  {{username}} </a>
+                    <div class="dropdown-menu dropdown-menu-right user-opt-list" aria-labelledby="dropdownBasic1" ngbDropdownMenu>
+                        <a class="user-list"><i class="fa fa-address-card" aria-hidden="true"></i> User Profile </a>
+                        <a class="user-list"><i class="fa fa-cog" aria-hidden="true"></i> Settings </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="user-list" routerLink="/login"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout </a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!--<app-breadcrumb></app-breadcrumb>-->
+<div class="col-md-12" style = "padding-top: 0.5%">
+    <router-outlet></router-outlet>
+    <!--<app-data-prepration style="width: 100%;"></app-data-prepration>-->
+</div>

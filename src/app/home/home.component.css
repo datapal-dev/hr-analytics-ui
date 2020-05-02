@@ -1,0 +1,36 @@
+.user-opt-list{
+      min-width: fit-content;
+}
+.username{
+      color: #1ab394 !important;
+    font-weight: bold;
+    cursor: pointer;
+}
+.user-list{
+    color: #1ab394 !important;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    padding: .25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
+.user-list:hover{
+      color: #f8f9fa !important;
+    background-color: #1ab394 !important;
+}
+.nav-item.active{
+  border-bottom: 3px solid #1ab394 !important;
+}
+
+.main-row{
+    margin: 0px 10px 0px 10px;
+}
+
+:host ::ng-deep body{
+    background:none;
+}
